@@ -19,6 +19,17 @@ app.post('/users', (req, res) => {
   });
 });
 
+// GET API for Check the Server is working or not
+app.get('/', async (req, res) => {
+    try {
+      
+      res.send('Express Server is Working...');
+    } catch (error) {
+      console.error('Error fetching users:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
+
 // Get all users
 app.get('/users', (req, res) => {
   const query = 'SELECT * FROM students';
